@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Train Scheduler</title>
+	
+	<!-- Bootstrap-->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"">
+	
+	<!-- Custom CSS-->
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!-- Bootstrap js-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Firebase-->
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<!-- Moment.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		
+		<div class="jumbotron text-center" id="jumbo">
+			<h1>Train Schedule</h1>
+			<h2 id="current-time"></h2>
+		</div><!--END .jumbotron -->
+		
+		<div class="panel panel-info" id="schedule-panel">
+			<div class="panel-heading">
+				<h1 class="panel-title">Current Train Schedule</h1>
+			</div>
+			<div class="panel-body">
+				<!-- .table-striped alternates table row colors -->
+				<table class="table table-striped"> 
+					</thead>
+						<tr>
+	    					<th>Train Name</th>
+	    					<th>Destination</th>
+	    					<th>Frequency (min)</th>
+	    					<th>Next Arrival</th>
+	    					<th>Minutes Away</th>
+	    					<th><span class='glyphicon glyphicon-edit'></span></th>
+	    					<th><span class='glyphicon glyphicon-trash'></span></th>
+	 					 </tr>
+					</thead>
+					<tbody id="schedule">
+					</tbody>
+  				</table>
+				
+				<div class="text-center">
+  				 
+  				 	<button class="btn btn-info" id="add-train-btn" type="submit">Add Train</button>
+				</div>
+				
+			</div>
+		</div><!-- END .panel -->
+		
+		
+		<div class="panel panel-info" id="add-panel">
+			
+			<div class="panel-heading">
+				<h1 class="panel-title" id="add-title">Add Train</h1>
+			</div>
+			
+			<div class="panel-body">
+				<form>
+                	<div class="form-group">
+                  		<label for="name">Train Name</label>
+                  		<input class="form-control" id="name" type="text">
+                	</div>
+                
+                	<div class="form-group">
+                  		<label for="destination">Destination</label>
+                  		<input class="form-control" id="destination" type="text">
+                	</div>
+                 
+                	 <div class="form-group">
+		                <label for="time">First Train Time (hh:mm militay time)</label>
+		            	<input class="form-control" id="time" type="text">
+                	</div>  
+                 
+                	 <div class="form-group">
+                  		<label for="frequency">Frequency (minutes)</label>
+                  		<input class="form-control" id="frequency" type="number" min=0 onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+               		 </div>    
+               
+               		 <button class="btn btn-info" id="submit-btn" type="submit">Submit</button>
+               		 <button class="btn btn-info" id="update-btn" type="submit">Update</button>
+               		 <button class="btn btn-info" id="close-btn" type="submit">Close</button>
+              </form>
+			</div>
+		</div><!-- END .panel -->
+	</div><!-- END .container -->
+<script src="javascript.js"></script>
+</body>
+</html>

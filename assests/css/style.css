@@ -1,0 +1,36 @@
+body
+{
+	background-image: url("../images/bg.jpg");	
+}
+
+
+
+.jumbotron
+{
+ background: rgba(0,0,0, .5);
+ margin-top: 2%;
+ color: white;
+ padding-top: 0;
+ padding-bottom: 10px;
+}
+
+h1, h2
+{
+	font-weight: 900;
+}
+
+#update-btn , #add-panel 
+{
+	display: none;
+}
+
+#schedule-panel, #add-panel
+{
+	background: rgba(255,255,255,.9);
+}
+
+
+.pop:hover
+{
+	transform: scale(1.25 , 1.25);
+}
